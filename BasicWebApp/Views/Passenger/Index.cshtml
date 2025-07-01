@@ -1,0 +1,49 @@
+﻿@model IEnumerable<BasicWebApp.Models.db.Passenger>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@if (Model.Count() <= 0)
+{
+    <div class="alert alert-danger">No data found</div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.PassId)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.PassName)
+                </td>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.PassId
+                    </td>
+                    <td>
+                        @item.PassName
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.PassId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.PassId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.PassId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

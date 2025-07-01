@@ -1,0 +1,73 @@
+﻿@model IEnumerable<BasicWebApp.Models.db.Airport>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@if (Model.Count() <= 0)
+{
+    <div class="alert alert-danger">No data found</div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.AirportId)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.AirportName)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Province)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.AirportSignal)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Destination)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.FullDestination)
+                </td>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.AirportId
+                    </td>
+                    <td>
+                        @item.AirportName
+                    </td>
+                    <td>
+                        @item.Province
+                    </td>
+                    <td>
+                        @item.AirportSignal
+                    </td>
+                    <td>
+                        @item.Destination
+                    </td>
+                    <td>
+                        @item.FullDestination
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.AirportId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.AirportId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.AirportId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

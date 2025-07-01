@@ -1,0 +1,44 @@
+﻿@model BasicWebApp.Models.db.Ticket
+
+<h2>Create Ticket</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label>Passenger</label>
+        <select asp-for="PassId" asp-items="ViewBag.Passengers" class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <label>Flight</label>
+        <select asp-for="FlightId" asp-items="ViewBag.Flights" class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <label>Airport</label>
+        <select asp-for="AirportId" asp-items="ViewBag.Airports" class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="SeatNumber"></label>
+        <input asp-for="SeatNumber" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Gate"></label>
+        <input asp-for="Gate" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="DepartDate"></label>
+        <input asp-for="DepartDate" class="form-control" type="datetime-local" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Boarding"></label>
+        <input asp-for="Boarding" class="form-control" type="datetime-local" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Zone"></label>
+        <input asp-for="Zone" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Seq"></label>
+        <input asp-for="Seq" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-success">Create</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

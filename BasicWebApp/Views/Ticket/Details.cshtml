@@ -1,0 +1,53 @@
+﻿@model BasicWebApp.Models.db.Ticket
+@{
+    ViewData["Title"] = "Ticket Details";
+}
+
+<div style="max-width: 500px; margin: auto; font-family: Arial, sans-serif; border: 1px solid #ccc; padding: 20px; border-radius: 12px;">
+    <h3 style="margin-bottom: 0;">@Model.Pass?.PassName?.ToUpper()</h3>
+    <p style="color: gray; margin-bottom: 10px;">@Model.Airport?.AirportName</p>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 28px; font-weight: bold; margin: 20px 0;">
+        <span style="color: #e53935;">@Model.Airport?.AirportSignal</span>
+        <span>→</span>
+        <span style="color: #e53935;">@Model.Airport?.Destination</span>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; color: gray; font-size: 14px;">
+        <div>
+            <div><strong>Flight No.</strong></div>
+            <div>@Model.Flight?.FlightNumber</div>
+        </div>
+        <div>
+            <div><strong>Depart date</strong></div>
+            <div>@Model.DepartDate?.ToString("dd MMM yyyy")</div>
+        </div>
+        <div>
+            <div><strong>Boarding time</strong></div>
+            <div>@Model.Boarding?.ToString("HH:mm")<br />@Model.Boarding?.ToString("dd MMM yyyy")</div>
+        </div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; margin-top: 20px; font-size: 14px;">
+        <div>
+            <div><strong>Gate</strong></div>
+            <div>@(string.IsNullOrEmpty(Model.Gate) ? "-" : Model.Gate)</div>
+        </div>
+        <div>
+            <div><strong>Zone</strong></div>
+            <div>@Model.Zone</div>
+        </div>
+        <div>
+            <div><strong>Seat</strong></div>
+            <div>@Model.SeatNumber</div>
+        </div>
+        <div>
+            <div><strong>Seq</strong></div>
+            <div>@Model.Seq</div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a asp-action="Index" class="btn btn-secondary">Back to list</a>
+    </div>
+</div>

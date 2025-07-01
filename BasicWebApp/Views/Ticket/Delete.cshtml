@@ -1,0 +1,17 @@
+﻿@model BasicWebApp.Models.db.Ticket
+
+<h2>Delete Ticket</h2>
+
+<h4>Are you sure you want to delete this ticket?</h4>
+
+<table class="table">
+    <tr><th>Passenger</th><td>@Model.Pass?.PassName</td></tr>
+    <tr><th>Flight</th><td>@Model.Flight?.FlightNumber</td></tr>
+    <tr><th>Airport</th><td>@Model.Airport?.AirportName</td></tr>
+</table>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="TicketId" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
