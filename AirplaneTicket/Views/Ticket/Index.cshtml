@@ -1,6 +1,10 @@
 ﻿@model IEnumerable<BasicWebApp.Models.db.Ticket>
 
-<h2>Tickets</h2>
+@{
+    ViewData["Title"] = "Tickets";
+}
+<h1>Tickets</h1>
+
 <p>
     <a asp-action="Create" class="btn btn-primary">Create New</a>
 </p>
